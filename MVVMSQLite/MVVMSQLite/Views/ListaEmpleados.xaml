@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MVVMSQLite.Views.ListaEmpleados">
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="listViewEmpleados"
+                  ItemsSource="{Binding ListaEmpleados}"
+                  SelectionMode="None"
+                  Margin="5"
+                  HeightRequest="150">
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout x:Name="Elemento" Margin="20,0,0,0"
+                                         Orientation="Horizontal"
+                                         HorizontalOptions="FillAndExpand">
+                                    <Label Text="{Binding Nombre}"
+                                           VerticalTextAlignment="Center"/>
+                                    <Label Text="{Binding Puesto}"
+                                           VerticalTextAlignment="Center"/>
+                                    <Label Text="{Binding Edad}"
+                                           VerticalTextAlignment="Center"/>
+                                    <!--<Label Text="{Binding Puesto}"
+                                           VerticalTextAlignment="Center"/>-->
+                                <Button Margin="12,0"
+                                        ImageSource="delete.png"
+                                        HorizontalOptions="End"
+                                        BackgroundColor="WhiteSmoke"
+                                        BindingContext="{Binding Source={x:Reference listViewEmpleados}, Path=BindingContext}" 
+                                        Command="{Binding DeleteServiceCommand}" 
+                                        CommandParameter="{Binding Source={x:Reference Elemento}, Path=BindingContext}" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

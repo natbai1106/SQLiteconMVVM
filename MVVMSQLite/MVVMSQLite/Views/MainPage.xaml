@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MVVMSQLite.Views.MainPage"
+             BackgroundColor="White"
+             Title="Registro de Empleados">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Guardar"
+                 Command="{Binding SaveInformation}"
+                 IconImageSource="example_icon.png"
+                 Order="Secondary"
+                 Priority="1" />
+        <ToolbarItem Text="Modificar"
+                 IconImageSource="example_icon.png"
+                 Order="Secondary"
+                 Priority="2" />
+        <ToolbarItem Text="Eliminar"
+                 IconImageSource="example_icon.png"
+                 Order="Secondary"
+                 Priority="2" />
+    </ContentPage.ToolbarItems>
+
+    <StackLayout Orientation="Vertical">
+        <ScrollView BackgroundColor="White">
+            <StackLayout>
+                <Label Text="Nombre:"
+                       BackgroundColor="#FDFDFD"
+                       Margin="20,10,20,0" 
+                       TextColor="Black"
+                       FontSize="20" 
+                       FontFamily="NewYork"/>
+
+                <Entry BackgroundColor="#FDFDFD"
+                        Margin="20,10,20,0" 
+                        TextColor="Black"
+                        Text="{Binding Nombre}"
+                        FontSize="20" 
+                        FontFamily="NewYork"/>
+
+                <Label Text="Apellido:"
+                       BackgroundColor="#FDFDFD"
+                       Margin="20,10,20,0" 
+                       TextColor="Black"
+                       FontSize="20" 
+                       FontFamily="NewYork"/>
+
+                <Entry BackgroundColor="#FDFDFD"
+                       Margin="20,10,20,0" 
+                       TextColor="Black"
+                       Text="{Binding Apellido}"
+                       FontSize="20" 
+                       FontFamily="NewYork"/>
+
+                <Label Text="Edad:"
+                       BackgroundColor="#FDFDFD"
+                       Margin="20,10,20,0" 
+                       TextColor="Black"
+                       FontSize="20" 
+                       FontFamily="NewYork"/>
+
+                <Entry BackgroundColor="#FDFDFD"
+                       Margin="20,10,20,0" 
+                       TextColor="Black"
+                       Keyboard="Numeric"
+                       FontSize="20" 
+                       FontFamily="NewYork"
+                       Text="{Binding Edad}"/>
+
+                <Label Text="Dirección:"
+                       BackgroundColor="#FDFDFD"
+                       Margin="20,10,20,0" 
+                       TextColor="Black"
+                       FontSize="20" 
+                       FontFamily="NewYork"/>
+
+                <Entry BackgroundColor="#FDFDFD"
+                       Margin="20,10,20,0" 
+                       TextColor="Black"
+                       FontSize="20" 
+                       FontFamily="NewYork"
+                       Text="{Binding Direccion}"/>
+
+                <Label Text="Puesto:"
+                       BackgroundColor="#FDFDFD"
+                       Margin="20,10,20,0" 
+                       TextColor="Black"
+                       FontSize="20" 
+                       FontFamily="NewYork"/>
+
+                <Entry x:Name="puesto"
+                        FontSize="20"
+                        Text="{Binding Puesto}"
+                        FontFamily="SansLight"
+                        Margin="20,5"
+                        HorizontalOptions="FillAndExpand" />
+
+                <StackLayout Padding="0,0" Margin="5">
+                    <Grid>
+                        <Button Grid.Row="0" Grid.Column="0" 
+                                Text="Guardar"
+                                CornerRadius="10"
+                                HorizontalOptions="CenterAndExpand"
+                                TextColor="White"
+                                BackgroundColor="#2196F3"
+                                FontSize="16" 
+                                FontFamily="AppleNegrita" HeightRequest="70" WidthRequest="200"
+                                Command="{Binding SendVerifyCommand}"/>
+
+                        <Button Grid.Row="0" Grid.Column="2"
+                                Text="Ver Lista De Empleados" 
+                                HorizontalOptions="Center" 
+                                CornerRadius="10"
+                                MinimumHeightRequest="-1"
+                                TextColor="White"
+                                BackgroundColor="#2196F3"
+                                FontSize="16" 
+                                FontFamily="AppleNegrita" HeightRequest="70" WidthRequest="200"
+                                Command="{Binding listViewEmpleados}"/>
+                    </Grid>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </StackLayout>
+</ContentPage>
