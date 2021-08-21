@@ -46,10 +46,10 @@ namespace MVVMSQLite.Models
         //}
 
         //Delete 
-        //public Task<int> EliminarFoto(Empleados foto)
-        //{
-        //    return db.DeleteAsync(foto);
-        //}
+        public Task<int> BorrarEmpleado(Empleados empleado)
+        {
+            return db.DeleteAsync(empleado);
+        }
         #endregion Empleados 
     }
 }
